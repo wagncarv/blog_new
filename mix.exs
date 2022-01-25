@@ -1,16 +1,41 @@
 defmodule BlogNew.MixProject do
   use Mix.Project
 
+  @github_url "https://github.com/wagncarv"
+
   def project do
     [
       app: :blog_new,
       version: "0.1.0",
       elixir: "~> 1.12",
+      description: "Projeto para aprender fundamentos do Phoenix com Elixir",
+      source_url: @github_url,
+      homepage_url: @github_url,
+      files: ~w[mix.exs lib LICENSE.md README.md CHANGELOG.md],
+      package: [
+        maintainers: ["Wagner Patrick de Carvalho"],
+        licenses: ["MIT"],
+        links: %{
+          "github" => @github_url
+        }
+      ],
+      docs: [
+        main: "README",
+        extras: ["README.md", "CHANGELOG.md"]
+      ],
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test,
+        "coveralls.json": :test
+      ]
     ]
   end
 
@@ -48,7 +73,9 @@ defmodule BlogNew.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:credo, "~>1.5", only: [:dev, :test], runtime: false},
+      {:excoveralls, "~> 0.10", only: :test}
     ]
   end
 
