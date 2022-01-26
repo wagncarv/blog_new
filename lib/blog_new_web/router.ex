@@ -10,9 +10,11 @@ defmodule BlogNewWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  # coveralls-ignore-start
   pipeline :api do
     plug :accepts, ["json"]
   end
+  # coveralls-ignore-stop
 
   scope "/", BlogNewWeb do
     pipe_through :browser
@@ -32,6 +34,7 @@ defmodule BlogNewWeb.Router do
   # If your application does not have an admins-only section yet,
   # you can use Plug.BasicAuth to set up some basic authentication
   # as long as you are also using SSL (which you should anyway).
+  # coveralls-ignore-start
   if Mix.env() in [:dev, :test] do
     import Phoenix.LiveDashboard.Router
 
@@ -41,11 +44,13 @@ defmodule BlogNewWeb.Router do
       live_dashboard "/dashboard", metrics: BlogNewWeb.Telemetry
     end
   end
+  # coveralls-ignore-stop
 
   # Enables the Swoosh mailbox preview in development.
   #
   # Note that preview only shows emails that were sent by the same
   # node running the Phoenix server.
+  # coveralls-ignore-start
   if Mix.env() == :dev do
     scope "/dev" do
       pipe_through :browser
@@ -53,4 +58,5 @@ defmodule BlogNewWeb.Router do
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
+  # coveralls-ignore-stop
 end

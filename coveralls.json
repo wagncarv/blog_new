@@ -2,6 +2,7 @@
     "skip_files": [
       "lib/blog_new/application.ex",
       "lib/blog_new/release.ex",
+      "lib/blog_new_web.ex ",
       "lib/blog_web.ex",
       "lib/blog_web/views/error_helpers.ex",
       "test/support/channel_case.ex",
@@ -11,6 +12,6 @@
     "coverage_options": {
       "treat_no_relevant_lines_as_covered": true,
       "output_dir": "cover/",
-      "minimum_coverage": 90
+      "minimum_coverage": 50
     }
   }
