@@ -14,12 +14,14 @@ defmodule BlogNewWeb.Router do
   pipeline :api do
     plug :accepts, ["json"]
   end
+
   # coveralls-ignore-stop
 
   scope "/", BlogNewWeb do
     pipe_through :browser
 
     get "/posts", PostController, :index
+    get "/posts/:id", PostController, :show
     get "/", PageController, :index
   end
 
@@ -45,6 +47,7 @@ defmodule BlogNewWeb.Router do
       live_dashboard "/dashboard", metrics: BlogNewWeb.Telemetry
     end
   end
+
   # coveralls-ignore-stop
 
   # Enables the Swoosh mailbox preview in development.
@@ -59,5 +62,6 @@ defmodule BlogNewWeb.Router do
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
+
   # coveralls-ignore-stop
 end

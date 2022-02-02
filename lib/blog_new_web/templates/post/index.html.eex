@@ -1,4 +1,3 @@
-<%= @valor %>
 <ul class="collection with-header">
     <li class="collection-header">
         <h4>Todos os posts</h4>
@@ -7,8 +6,15 @@
     <li class="collection-item">
         <div><%= post.title %>
             <a href="#!" class="secondary-content">
-                <i class="material-icons">send</i>
+                <i class="material-icons red-text">delete</i>
             </a>
+            <a href="#!" class="secondary-content">
+                <i class="material-icons green-text">edit</i>
+            </a>
+            <%= link to: Routes.post_path(@conn, :show, post.id), class: "secondary-content" do %>
+            <i class="material-icons blue-text">send</i>
+            </a>
+            <%= end %>
         </div>
     </li>
     <%= end %>
