@@ -1,5 +1,7 @@
 <ul class="collection with-header">
     <li class="collection-header">
-        <h4>Todos os posts</h4>
+        <h4>Post</h4>
     </li>
+    <li><%= @post.title %></li>
+    <li><%= @post.description %></li>
 </ul>

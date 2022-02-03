@@ -11,11 +11,17 @@
             <a href="#!" class="secondary-content">
                 <i class="material-icons green-text">edit</i>
             </a>
-            <%= link to: Routes.post_path(@conn, :show, post.id), class: "secondary-content" do %>
+            <%= link to: Routes.post_path(@conn, :show, post), class: "secondary-content" do %>
             <i class="material-icons blue-text">send</i>
             </a>
-            <%= end %>
+            <% end %>
         </div>
     </li>
-    <%= end %>
+    <% end %>
 </ul>
+
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large red">
+    <i class="large material-icons">add</i>
+  </a>
+</div>
