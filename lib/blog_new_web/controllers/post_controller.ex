@@ -12,4 +12,8 @@ defmodule BlogNewWeb.PostController do
     post = Get.by_id(id)
     render(conn, "show.html", post: post)
   end
+
+  def new(conn, _params) do
+    render(conn, "new.html")
+  end
 end
