@@ -15,7 +15,7 @@ defmodule BlogNew.Posts.Post do
     def changeset(struct \\ %__MODULE__{}, attrs \\ %{}) do
         struct
         |> cast(attrs, @required_params)
-        |> validate_required(@required_params, message: "mandatory field")
+        |> validate_required(@required_params, message: "Campo obrigatório")
     end
 
 end
