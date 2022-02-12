@@ -12,7 +12,7 @@ defmodule BlogNew.Posts.Post do
         timestamps()
     end
 
-    def changeset(struct \\ %__MODULE__{}, attrs) do
+    def changeset(struct \\ %__MODULE__{}, attrs \\ %{}) do
         struct
         |> cast(attrs, @required_params)
         |> validate_required(@required_params, message: "mandatory field")
